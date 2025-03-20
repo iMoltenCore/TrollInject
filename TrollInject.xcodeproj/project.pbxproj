@@ -91,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		071D7B4E2D8BF04100052BF2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		073EFB832D6724CD00A7772C /* TrollInject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrollInject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073EFB9F2D67262B00A7772C /* TrollInject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrollInject-Bridging-Header.h"; sourceTree = "<group>"; };
 		073EFBA12D67262C00A7772C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		073EFBE62D67262C00A7772C /* LSApplicationProxy+AltList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LSApplicationProxy+AltList.m"; sourceTree = "<group>"; };
 		073EFBE92D67262C00A7772C /* Greeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Greeter.swift; sourceTree = "<group>"; };
 		073EFBEA2D67262C00A7772C /* AuxiliaryExecute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuxiliaryExecute.swift; sourceTree = "<group>"; };
-		073EFBEB2D67262C00A7772C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		073EFBEC2D67262C00A7772C /* LSApplicationProxy+AltList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LSApplicationProxy+AltList.h"; sourceTree = "<group>"; };
 		073EFC372D67329E00A7772C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		073EFC3A2D686EFC00A7772C /* InjectorV3+Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "InjectorV3+Inject.swift"; sourceTree = "<group>"; };
@@ -222,6 +222,7 @@
 		073EFB7A2D6724CD00A7772C = {
 			isa = PBXGroup;
 			children = (
+				071D7B4E2D8BF04100052BF2 /* README.md */,
 				073EFB852D6724CD00A7772C /* TrollInject */,
 				073EFB842D6724CD00A7772C /* Products */,
 				073EFC362D67329E00A7772C /* Frameworks */,
@@ -261,7 +262,6 @@
 				073EFBE62D67262C00A7772C /* LSApplicationProxy+AltList.m */,
 				073EFBA12D67262C00A7772C /* main.m */,
 				07D4CA722D7AE43700CBF776 /* OSDependent.h */,
-				073EFBEB2D67262C00A7772C /* README.md */,
 				073EFBB52D67262C00A7772C /* Resources */,
 				073EFBE02D67262C00A7772C /* SSZipArchive */,
 				073EFBB72D67262C00A7772C /* TDAppDelegate.h */,

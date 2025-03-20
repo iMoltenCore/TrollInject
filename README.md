@@ -4,9 +4,11 @@ iOS dynamic injector for TrollStore
 ## What does it do
 It prints some information on the target App process, launches the App with 
 `.dylib` injected, or injects a `.dylib` into a running App process. Unlike
-TrollFool, all the injection work is dynamic, with no files touched, leaving 
-the traces to the minimal for the App to detect. Note this is only for 
-development usage. If the system kills the App when it's in the background, 
+TrollFool, there are no restriction on the type of Apps supported. ANY user
+app, including those without non-crypted binaries, can be injected. Also, all
+the injection work is dynamic, with no files touched, leaving the traces to 
+the minimal for the App to detect. Note this is only for developers, not very
+useful for regular users. If the system kills the App when it's in the background, 
 you will not get a injected process when you switch back. The injection must 
 be operated again manually to work.
 
