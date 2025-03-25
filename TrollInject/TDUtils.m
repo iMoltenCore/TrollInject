@@ -2,6 +2,7 @@
 #import "TJUtils.h"
 #import "FBSSystemService.h"
 #import "LSApplicationProxy+AltList.h"
+#import "TDDumpDecrypted.h"
 #import "TJRemoteRun.h"
 #import "TJExceptionServer.h"
 #import "TJCourier.h"
@@ -399,6 +400,69 @@ void injectRunningWithDylib(NSDictionary *app) {
     });
 }
 
+void packCrypted(NSDictionary *app) {
+    DumpDecrypted *dd = [[DumpDecrypted alloc] initWithPathToBinary:[app[@"bundleURL"] path] appName:app[@"name"] appVersion:app[@"version"] crypted:YES];
+    if (!dd) {
+        NSLog(@"ERROR: failed to get DumpDecrypted instance");
+        return;
+    }
+    [dd createIPAFile:0];
+    
+}
+
 NSString *trollDecryptVersion(void) {
     return [NSBundle.mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
+}
+
+NSArray *ipaFileList(void) {
+    NSMutableArray *files = [NSMutableArray array];
+    NSMutableArray *fileNames = [NSMutableArray array];
+
+    // iterate through all files in the Documents directory
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *directoryEnumerator = [fileManager enumeratorAtPath:ipaPath()];
+
+    NSString *file;
+    while (file = [directoryEnumerator nextObject]) {
+        if ([[file pathExtension] isEqualToString:@"ipa"]) {
+            NSString *filePath = [[ipaPath() stringByAppendingPathComponent:file] stringByStandardizingPath];
+
+            NSDictionary *fileAttributes = [fileManager attributesOfItemAtPath:filePath error:nil];
+            NSDate *modificationDate = fileAttributes[NSFileModificationDate];
+
+            NSDictionary *fileInfo = @{@"fileName": file, @"modificationDate": modificationDate};
+            [files addObject:fileInfo];
+        }
+    }
+
+    // Sort the array based on modification date
+    NSArray *sortedFiles = [files sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        NSDate *date1 = [obj1 objectForKey:@"modificationDate"];
+        NSDate *date2 = [obj2 objectForKey:@"modificationDate"];
+        return [date2 compare:date1];
+    }];
+
+    // Get the file names from the sorted array
+    for (NSDictionary *fileInfo in sortedFiles) {
+        [fileNames addObject:[fileInfo objectForKey:@"fileName"]];
+    }
+
+    return [fileNames copy];
+}
+
+NSString *docPath(void) {
+    NSURL *docURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                            inDomains:NSUserDomainMask] lastObject];
+    return [docURL path];
+}
+
+NSString *ipaPath(void) {
+    NSError *error = nil;
+    NSString *res = [docPath() stringByAppendingPathComponent:@"ipas"];
+    [[NSFileManager defaultManager] createDirectoryAtPath:res withIntermediateDirectories:YES attributes:nil error:&error];
+    if (error != nil) {
+        NSLog(@"Error creating directory: %@", error);
+    }
+    
+    return res;
 }

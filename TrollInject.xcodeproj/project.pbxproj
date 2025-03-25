@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		071D7B5D2D92A7B300052BF2 /* TDDumpDecrypted.m in Sources */ = {isa = PBXBuildFile; fileRef = 071D7B5C2D92A7B300052BF2 /* TDDumpDecrypted.m */; };
+		071D7B602D92B28400052BF2 /* TDFileManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 071D7B5F2D92B28300052BF2 /* TDFileManagerViewController.m */; };
 		073EFBEE2D67262C00A7772C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 073EFBA12D67262C00A7772C /* main.m */; };
 		073EFC022D67262C00A7772C /* AuxiliaryExecute+Spawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073EFBB62D67262C00A7772C /* AuxiliaryExecute+Spawn.swift */; };
 		073EFC032D67262C00A7772C /* aes_ni.c in Sources */ = {isa = PBXBuildFile; fileRef = 073EFBB82D67262C00A7772C /* aes_ni.c */; };
@@ -92,6 +94,10 @@
 
 /* Begin PBXFileReference section */
 		071D7B4E2D8BF04100052BF2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		071D7B5B2D92A7B300052BF2 /* TDDumpDecrypted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDDumpDecrypted.h; sourceTree = "<group>"; };
+		071D7B5C2D92A7B300052BF2 /* TDDumpDecrypted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDDumpDecrypted.m; sourceTree = "<group>"; };
+		071D7B5E2D92B28300052BF2 /* TDFileManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFileManagerViewController.h; sourceTree = "<group>"; };
+		071D7B5F2D92B28300052BF2 /* TDFileManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFileManagerViewController.m; sourceTree = "<group>"; };
 		073EFB832D6724CD00A7772C /* TrollInject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrollInject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		073EFB9F2D67262B00A7772C /* TrollInject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrollInject-Bridging-Header.h"; sourceTree = "<group>"; };
 		073EFBA12D67262C00A7772C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -266,8 +272,12 @@
 				073EFBE02D67262C00A7772C /* SSZipArchive */,
 				073EFBB72D67262C00A7772C /* TDAppDelegate.h */,
 				073EFBE32D67262C00A7772C /* TDAppDelegate.m */,
-				073EFBE42D67262C00A7772C /* TDRootViewController.h */,
+				071D7B5B2D92A7B300052BF2 /* TDDumpDecrypted.h */,
+				071D7B5C2D92A7B300052BF2 /* TDDumpDecrypted.m */,
+				071D7B5E2D92B28300052BF2 /* TDFileManagerViewController.h */,
+				071D7B5F2D92B28300052BF2 /* TDFileManagerViewController.m */,
 				073EFBE12D67262C00A7772C /* TDRootViewController.m */,
+				073EFBE42D67262C00A7772C /* TDRootViewController.h */,
 				073EFBE52D67262C00A7772C /* TDUtils.h */,
 				073EFBE22D67262C00A7772C /* TDUtils.m */,
 				07D4CA752D7B020D00CBF776 /* TJCourier.h */,
@@ -566,6 +576,7 @@
 				073EFC102D67262C00A7772C /* minishared.c in Sources */,
 				073EFC172D67262C00A7772C /* LSApplicationProxy+AltList.m in Sources */,
 				073EFC082D67262C00A7772C /* hmac.c in Sources */,
+				071D7B602D92B28400052BF2 /* TDFileManagerViewController.m in Sources */,
 				073EFC122D67262C00A7772C /* zip.c in Sources */,
 				073EFC132D67262C00A7772C /* SSZipArchive.m in Sources */,
 				073EFC022D67262C00A7772C /* AuxiliaryExecute+Spawn.swift in Sources */,
@@ -585,6 +596,7 @@
 				07D4CA6B2D799C6200CBF776 /* TJExceptionServer.m in Sources */,
 				073EFC0A2D67262C00A7772C /* pwd2key.c in Sources */,
 				07D4CA792D841A2200CBF776 /* TJUtils.m in Sources */,
+				071D7B5D2D92A7B300052BF2 /* TDDumpDecrypted.m in Sources */,
 				073EFC3F2D6870F800A7772C /* InjectorV3+Bundle.swift in Sources */,
 				073EFC4A2D687B2B00A7772C /* Execute.swift in Sources */,
 				073EFC0E2D67262C00A7772C /* ioapi_mem.c in Sources */,

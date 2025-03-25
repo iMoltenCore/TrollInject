@@ -1,4 +1,5 @@
 #import "TDRootViewController.h"
+#import "TDFileManagerViewController.h"
 #import "TDUtils.h"
 
 @implementation TDRootViewController
@@ -10,10 +11,17 @@
     self.title = @"TrollInject!";
 	self.navigationController.navigationBar.prefersLargeTitles = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"info.circle"] style:UIBarButtonItemStylePlain target:self action:@selector(about:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"folder"] style:UIBarButtonItemStylePlain target:self action:@selector(openDocs:)];
 
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refreshApps:) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refreshControl;
+}
+
+- (void)openDocs:(id)sender {
+    TDFileManagerViewController *fmVC = [[TDFileManagerViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:fmVC];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)about:(id)sender {
@@ -75,6 +83,12 @@
         [self deselectRow];
     }];
     [appSelectAlert addAction:peekInfoAction];
+    
+    UIAlertAction *packCryptedAction = [UIAlertAction actionWithTitle:@"Pack crypted as IPA" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        packCrypted(app);
+        [self deselectRow];
+    }];
+    [appSelectAlert addAction:packCryptedAction];
     
     UIAlertAction *launchWithDylibAlert = [UIAlertAction actionWithTitle:@"Launch with Dylib" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         launchWithDylib(app);

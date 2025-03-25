@@ -40,5 +40,7 @@ void peekInfo(NSDictionary *app);
 void launchWithDylib(NSDictionary *app);
 void injectRunningWithDylib(NSDictionary *app);
 NSString *trollDecryptVersion(void);
-
-
+NSArray *ipaFileList(void);
+NSString *docPath(void);
+NSString *ipaPath(void);
+void packCrypted(NSDictionary *app);
