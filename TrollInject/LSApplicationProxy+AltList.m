@@ -96,23 +96,18 @@ BOOL tagArrayContainsTag(NSArray* tagArr, NSString* tag)
 	{
 		NSBundle* bundle = [NSBundle bundleWithURL:bundleURL];
 
-		localizedName = [bundle objectForInfoDictionaryKey:@"CFBundleDisplayName"];
-		if(![localizedName isKindOfClass:[NSString class]]) localizedName = nil;
-		if(!localizedName || [localizedName isEqualToString:@""])
-		{ 
-			localizedName = [bundle objectForInfoDictionaryKey:@"CFBundleName"];
-			if(![localizedName isKindOfClass:[NSString class]]) localizedName = nil;
-			if(!localizedName || [localizedName isEqualToString:@""])
-			{
-				localizedName = [bundle objectForInfoDictionaryKey:@"CFBundleExecutable"];
-				if(![localizedName isKindOfClass:[NSString class]]) localizedName = nil;
-				if(!localizedName || [localizedName isEqualToString:@""])
-				{
-					//last possible fallback: use slow IPC call
-					localizedName = self.localizedName;
-				}
-			}
-		}
+        localizedName = [bundle objectForInfoDictionaryKey:@"CFBundleName"];
+        if(![localizedName isKindOfClass:[NSString class]]) localizedName = nil;
+        if(!localizedName || [localizedName isEqualToString:@""])
+        {
+            localizedName = [bundle objectForInfoDictionaryKey:@"CFBundleExecutable"];
+            if(![localizedName isKindOfClass:[NSString class]]) localizedName = nil;
+            if(!localizedName || [localizedName isEqualToString:@""])
+            {
+                //last possible fallback: use slow IPC call
+                localizedName = self.localizedName;
+            }
+        }
 	}
 
 	[self setValue:localizedName forKey:@"_localizedName"];

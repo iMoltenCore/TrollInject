@@ -564,10 +564,10 @@ int find_off_cryptid(const char *filePath) {
 
 -(void) createIPAFile:(pid_t)pid {
 	NSString *IPAFile = [self IPAPath];
-	NSString *appDir  = [self appPath];
-	NSString *appCopyDir = [NSString stringWithFormat:@"%@/ipa/Payload/%s", [self docPath], self->appDirName];
+	NSString *appDir  = [[self appPath] stringByDeletingLastPathComponent];
+	NSString *appCopyDir = [NSString stringWithFormat:@"%@/ipa/Payload/", [self docPath]];
 	NSString *zipDir = [NSString stringWithFormat:@"%@/ipa", [self docPath]];
-	NSFileManager *fm = [[NSFileManager alloc] init];
+	NSFileManager *fm = [NSFileManager defaultManager];
 	NSError *err;
 
 	[fm removeItemAtPath:IPAFile error:nil];
@@ -582,7 +582,18 @@ int find_off_cryptid(const char *filePath) {
 	NSLog(@"[trolldecrypt] appCopyDir: %@", appCopyDir);
 	NSLog(@"[trolldecrypt] zipDir: %@", zipDir);
 	
-	[fm copyItemAtPath:appDir toPath:appCopyDir error:&err];
+    NSArray *contents = [fm contentsOfDirectoryAtPath:appDir error:&err];
+    for (NSString *currentPath in contents) {
+        NSString *fullPath = [appDir stringByAppendingPathComponent:currentPath];
+        
+        [fm copyItemAtPath:fullPath 
+                    toPath:[appCopyDir stringByAppendingPathComponent:currentPath]
+                     error:&err];
+        if (err) {
+            NSLog(@"File copy error: %@", err);
+        }
+    }
+    
 	NSLog(@"[trolldecrypt] ======== END OF FILE COPY ========");
     // sleep(1);
     // exit(1);
